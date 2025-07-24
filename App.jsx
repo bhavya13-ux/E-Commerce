@@ -1,14 +1,18 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import SplashScreen from './src/app/screens/SplashScreen';
+import BottomTabNavigator from './src/app/navigation/BottomTabNavigator';
 
-const App = () => {
+const Stack = createNativeStackNavigator();
+
+export default function App() {
   return (
-    <View>
-      <Text>App</Text>
-    </View>
-  )
-}
-
-export default App
-
-const styles = StyleSheet.create({})
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Splash" component={SplashScreen} />
+        <Stack.Screen name="Main" component={BottomTabNavigator} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
