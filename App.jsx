@@ -1,10 +1,12 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet,View,StatusBar } from 'react-native'
 import React from 'react'
+import LoginScreen from './src/app/screens/LoginScreen'
 
 const App = () => {
   return (
     <View>
-      <Text>App</Text>
+      <StatusBar barStyle='dark-content'/>
+      <LoginScreen/>
     </View>
   )
 }
