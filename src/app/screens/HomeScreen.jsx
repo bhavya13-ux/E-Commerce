@@ -1,14 +1,24 @@
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native'
-import React from 'react'
+import React from 'react';
+import { StyleSheet, StatusBar } from 'react-native';
+import SearchWithFavourite from '../components/SearchWithFavouriteAndNotifi';
+import Categories from '../components/CategoriesMenu';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const HomeScreen = () => {
   return (
-    <SafeAreaView>
-      <Text>HomeScreen</Text>
-    </SafeAreaView>
-  )
-}
+      <SafeAreaView style={styles.container}>
+        <StatusBar backgroundColor='white' barStyle='dark-content'/>
+        <SearchWithFavourite />
+        <Categories />
+      </SafeAreaView>
+  );
+};
 
-export default HomeScreen
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'white',
+  },
+});
 
-const styles = StyleSheet.create({})
+export default HomeScreen;
