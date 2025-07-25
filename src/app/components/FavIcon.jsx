@@ -19,7 +19,6 @@ const styles = StyleSheet.create({
     width: 24,
     height: 24,
     fontWeight: 'bold',
-    tintColor: '#f43f5e',
     marginLeft: 10,
   },
 });

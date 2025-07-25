@@ -29,7 +29,6 @@ export default Categories;
 const styles = StyleSheet.create({
   container: {
     paddingVertical: 10,
-    // backgroundColor: '#fff',
     marginTop: 10,
   },
   categoryItem: {
@@ -38,8 +37,8 @@ const styles = StyleSheet.create({
     width: 70,
   },
   icon: {
-    width: 40,
-    height: 40,
+    width: 25,
+    height: 25,
     marginBottom: 2,
     resizeMode: 'contain',
   },
@@ -47,6 +46,5 @@ const styles = StyleSheet.create({
     fontSize: 12,
     textAlign: 'center',
     fontWeight:'400',
-    letterSpacing:1,
   },
 });

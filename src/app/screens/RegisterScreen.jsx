@@ -15,6 +15,7 @@ const RegisterScreen = ({ navigation }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [errors, setErrors] = useState({});
 
   const handleRegister = () => {
@@ -39,6 +40,14 @@ const RegisterScreen = ({ navigation }) => {
       valid = false;
     } else if (password.length < 6) {
       tempErrors.password = 'Password must be at least 6 characters';
+      valid = false;
+    }
+
+    if (!confirmPassword.trim()) {
+      tempErrors.confirmPassword = 'Confirm your password';
+      valid = false;
+    } else if (password !== confirmPassword) {
+      tempErrors.confirmPassword = 'Passwords do not match';
       valid = false;
     }
 
@@ -99,6 +108,19 @@ const RegisterScreen = ({ navigation }) => {
         {errors.password && (
           <Text style={styles.errorText}>{errors.password}</Text>
         )}
+
+        <View style={styles.inputWrapper}>
+          <TextInput
+            placeholder="Confirm your Password"
+            secureTextEntry
+            style={styles.input}
+            value={confirmPassword}
+            onChangeText={setConfirmPassword}
+          />
+        </View>
+        {errors.confirmPassword && (
+          <Text style={styles.errorText}>{errors.confirmPassword}</Text>
+        )}
       </View>
 
       {/* Register Button */}
@@ -124,7 +146,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'white',
     paddingHorizontal: 25,
-    paddingTop: 60,
+    paddingTop: 140,
   },
   header: {
     alignItems: 'center',
