@@ -37,13 +37,13 @@ const styles = StyleSheet.create({
     width: 70,
   },
   icon: {
-    width: 25,
-    height: 25,
+    width: 30,
+    height: 30,
     marginBottom: 2,
     resizeMode: 'contain',
   },
   label: {
-    fontSize: 12,
+    fontSize: 14,
     textAlign: 'center',
     fontWeight:'400',
   },

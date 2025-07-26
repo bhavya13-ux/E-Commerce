@@ -11,9 +11,11 @@ import {
 const { width } = Dimensions.get('window');
 
 const sliderData = [
-  { id: '1', image: require('../assets/icons/SliderImg/Slider_1_Fashion.jpg') },
-  { id: '2', image: require('../assets/icons/SliderImg/Slider_2_Electronic.webp') },
-  { id: '3', image: require('../assets/icons/SliderImg/Slider_3_Beauty.jpg') },
+  { id: '1', image: require('../assets/icons/SliderImg/Slider_1_Fashion.png') },
+  { id: '2', image: require('../assets/icons/SliderImg/Slider_2_Footwear.png') },
+  { id: '3', image: require('../assets/icons/SliderImg/Slider_3_Beauty.png') },
+  { id: '4', image: require('../assets/icons/SliderImg/Slider_4_Electronics.png') },
+  { id: '5', image: require('../assets/icons/SliderImg/Slider_5_Fashion.jpg') },
 ];
 
 const Slider = () => {
@@ -71,10 +73,10 @@ const Slider = () => {
 
 const styles = StyleSheet.create({
   sliderContainer: {
-    marginTop: 10,
+    marginTop: 8,
   },
   image: {
-    height: 190,
+    height: 240,
     width: width - 10,
     resizeMode: 'cover',
     margin: 5,

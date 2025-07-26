@@ -6,8 +6,6 @@ const promoItems = [
   { icon: '🆕', label: 'New Arrivals' },
   { icon: '📈', label: 'Trending' },
   { icon: '🌟', label: 'Best Sellers' },
-  { icon: '📚', label: 'Books' },
-  { icon: '🎮', label: 'Gaming' },
   { icon: '🎧', label: 'Headphones' },
   { icon: '💡', label: 'Ideas' },
 ];
@@ -37,19 +35,19 @@ const styles = StyleSheet.create({
   box: {
     alignItems: 'center',
     backgroundColor: '#f2f2f2',
-    borderRadius: 12,
+    borderRadius: 50,
     paddingVertical: 12,
     paddingHorizontal: 14,
     width: 80,
     marginHorizontal: 6,
   },
   icon: {
-    fontSize: 15,
+    fontSize: 20,
     marginBottom: 6,
   },
   label: {
     fontSize: 10,
-    fontWeight: '500',
+    fontWeight: '700',
     textAlign: 'center',
     color: '#333',
   },
