@@ -5,12 +5,14 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
-  ScrollView,
+  Dimensions,
 } from 'react-native';
+const { width } = Dimensions.get('window');
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const ProfileScreen = () => {
   return (
-    <ScrollView style={styles.container}>
+    <SafeAreaView style={{flex:1,backgroundColor:'white'}}>
       {/* Profile Header */}
       <View style={styles.header}>
         <Image
@@ -30,11 +32,7 @@ const ProfileScreen = () => {
       <View style={styles.optionList}>
         {[
           'Contact Us',
-          'About Us',
-          'Cookie Policy',
-          'Sale and Refund Policy',
           'FAQs',
-          'Change Language',
           'Delete Account',
           'Address',
         ].map((item, index) => (
@@ -43,7 +41,9 @@ const ProfileScreen = () => {
           </TouchableOpacity>
         ))}
       </View>
-    </ScrollView>
+      <TouchableOpacity style={styles.logoutButton}>
+        <Text style={styles.logoutButtonText}>Logout</Text></TouchableOpacity>
+    </SafeAreaView>
   );
 };
 
@@ -53,6 +53,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    justifyContent:'center',
+    alignItems:'center',
   },
   header: {
     flexDirection: 'row',
@@ -88,5 +90,20 @@ const styles = StyleSheet.create({
   },
   optionText: {
     fontSize: 16,
+  },
+  logoutButton: {
+  backgroundColor: '#0066cc',
+  paddingVertical: 12,
+  alignItems: 'center',
+  width: width * 0.8,
+  paddingHorizontal: 20,
+  alignSelf: 'center',  // This centers the button
+  marginTop: 40,
+}
+,
+  logoutButtonText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });

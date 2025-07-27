@@ -4,21 +4,23 @@ import {
   Text,
   StyleSheet,
   Image,
-  FlatList,
   StatusBar,
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-const dummyCartItems = [
+import QuanSelector from '../components/QuanSelector';
+import AddressShow from '../components/AddressShow';
+
+const closeIcon=require('../assets/icons/closeIcon.png');
+
+const cartItems = [
   {
     id: '1',
     name: 'Dressar Women Floral Print',
     size: 'S, Lemon',
     rating: 4.1,
-    reviews: 11292,
-    price: 287,
     originalPrice: 1999,
     discount: 85,
     image: require('../assets/icons/Products/Floral_Frock.png'),
@@ -29,8 +31,6 @@ const dummyCartItems = [
     name: 'KJFAB Men Shirt',
     size: 'M, Olive',
     rating: 3.9,
-    reviews: 3909,
-    price: 358,
     originalPrice: 699,
     discount: 48,
     image: require('../assets/icons/Products/Mens_shirt.png'),
@@ -41,8 +41,6 @@ const dummyCartItems = [
     name: "Women's BrookLyn Low Wedges",
     size: '6, Cream',
     rating: 3.9,
-    reviews: 3909,
-    price: 358,
     originalPrice: 699,
     discount: 48,
     image: require('../assets/icons/Products/Sandal.png'),
@@ -53,21 +51,41 @@ const dummyCartItems = [
     name: "Samsung A14",
     size: '6, Cream',
     rating: 3.9,
-    reviews: 3909,
-    price: 358,
-    originalPrice: 699,
-    discount: 48,
+    originalPrice: 2500,
+    discount: 75,
     image: require('../assets/icons/Products/SamsungA14.png'),
     delivery: 'Aug 1, Fri',
   },
+  {
+    id: '5',
+    name: "Samsung A14",
+    size: '6, Cream',
+    rating: 3.9,
+    originalPrice: 4000,
+    discount: 55,
+    image: require('../assets/icons/Products/SamsungA14.png'),
+    delivery: 'Aug 1, Fri',
+  },
+  {
+    id: '6',
+    name: 'KJFAB Men Shirt',
+    size: 'M, Olive',
+    rating: 3.9,
+    originalPrice: 699,
+    discount: 48,
+    image: require('../assets/icons/Products/Mens_shirt.png'),
+    delivery: 'Aug 1, Fri',
+  },
 ];
+const totalPrice=cartItems.reduce((sum,item)=>sum+(item.originalPrice-(item.originalPrice*item.discount)/100),0).toFixed(2);
 
 const CartScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar backgroundColor='white' barStyle='dark-content'/>
+      <AddressShow/>
       <ScrollView>
-        {dummyCartItems.map((item) => (
+        {cartItems.map((item) => (
           <View key={item.id} style={styles.card}>
             <View style={styles.row}>
               <Image source={item.image} style={styles.image} />
@@ -76,20 +94,21 @@ const CartScreen = () => {
                   {item.name}
                 </Text>
                 <Text style={styles.subText}>Size: {item.size}</Text>
-                <Text style={styles.rating}>⭐ {item.rating} ({item.reviews})</Text>
+                <Text style={styles.rating}>⭐ {item.rating}</Text>
                 <View style={styles.priceRow}>
                   <Text style={styles.discount}>↓ {item.discount}% </Text>
                   <Text style={styles.originalPrice}>₹{item.originalPrice}</Text>
-                  <Text style={styles.finalPrice}> ₹{item.price}</Text>
+                  <Text style={styles.finalPrice}>₹{(item.originalPrice - (item.originalPrice * item.discount) / 100).toFixed(2)}</Text>
                 </View>
                 <Text style={styles.delivery}>Delivery by {item.delivery}</Text>
               </View>
+              <TouchableOpacity>
+              <Image source={closeIcon} style={{width:20,height:20}} />
+              </TouchableOpacity>
             </View>
-
             <View style={styles.actions}>
-              <TouchableOpacity><Text style={styles.actionBtn}>Remove</Text></TouchableOpacity>
-              <TouchableOpacity><Text style={styles.actionBtn}>Save for later</Text></TouchableOpacity>
-              <TouchableOpacity><Text style={styles.actionBtn}>Buy this now</Text></TouchableOpacity>
+            <QuanSelector initialQuantity={1} onChange={(qty)=>console.log('Selected Quantity:',qty)}/>
+            <TouchableOpacity><Text style={styles.actionBtn}>Buy Now</Text></TouchableOpacity>
             </View>
           </View>
         ))}
@@ -97,7 +116,7 @@ const CartScreen = () => {
 
       {/* Footer */}
       <View style={styles.footer}>
-        <Text style={styles.totalText}>Total: ₹650</Text>
+        <Text style={styles.totalText}>₹{totalPrice}</Text>
         <TouchableOpacity style={styles.orderBtn}>
           <Text style={styles.orderText}>Place Order</Text>
         </TouchableOpacity>
@@ -170,12 +189,13 @@ const styles = StyleSheet.create({
   },
   actions: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     marginTop: 10,
   },
   actionBtn: {
     color: '#007bff',
-    fontSize: 13,
+    fontSize: 14,
+    // textAlign:'right',
   },
   footer: {
     flexDirection: 'row',

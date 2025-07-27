@@ -8,13 +8,15 @@ import Slider from './Slider';
 import PromoBoxesUI from '../components/PromoBoxesUI';
 import FlashSaleUI from '../components/FlashSaleUI';
 import BestSellersUI from '../components/BestSellersUI';
+import AddressShow from '../components/AddressShow';
 
 const HomeScreen = () => {
   const [searchText, setSearchText] = useState('');
 
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar backgroundColor="white" barStyle="dark-content" />
+      <StatusBar backgroundColor="#f2f2f2" barStyle="dark-content" />
+      <AddressShow/>
       
       <SearchWithFavourite onSearch={setSearchText} />
 

@@ -3,8 +3,8 @@ import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity } from 'rea
 
 const categories = [
   { name: 'Fashion', icon: require('../assets/icons/Fashion.png') },
-  { name: 'Electronics', icon: require('../assets/icons/Electronics.png') },
-  { name: 'Food & Health', icon: require('../assets/icons/Food&Health.png') },
+  { name: 'Electronics', icon: require('../assets/icons/laptop.png') },
+  { name: 'Wearables', icon: require('../assets/icons/Smartwatch.png') },
   { name: 'Home', icon: require('../assets/icons/Homekeliye.png')},
   { name: 'Beauty', icon: require('../assets/icons/Beauty.png') },
 ];
