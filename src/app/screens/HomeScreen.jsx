@@ -9,6 +9,8 @@ import PromoBoxesUI from '../components/PromoBoxesUI';
 import FlashSaleUI from '../components/FlashSaleUI';
 import BestSellersUI from '../components/BestSellersUI';
 import AddressShow from '../components/AddressShow';
+import MensJacket from './MensJacketScreen';
+import FootwearSection from '../components/FootwearSection';
 
 const HomeScreen = () => {
   const [searchText, setSearchText] = useState('');
@@ -26,6 +28,8 @@ const HomeScreen = () => {
         <PromoBoxesUI />
         <FlashSaleUI searchQuery={searchText} />
         <BestSellersUI searchQuery={searchText} />
+        <MensJacket />
+        <FootwearSection />
       </ScrollView>
     </SafeAreaView>
   );

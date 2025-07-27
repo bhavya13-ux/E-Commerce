@@ -1,7 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, } from 'react-native';
 
-// const rightArrow = require('../assets/icons/arrow_right.png'); 
 
 const AddressShow = () => {
   return (
@@ -14,7 +13,6 @@ const AddressShow = () => {
         </Text>
       </View>
 
-      {/* <Image source={rightArrow} style={styles.arrow} /> */}
     </TouchableOpacity>
   );
 };

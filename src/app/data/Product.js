@@ -15,7 +15,7 @@ export const allProducts = [
     image: 'https://via.placeholder.com/100',
     discount: '30% OFF',
     rating: 4.2,
-    category: 'flashsale',
+    category: 'flashsale', 
   },
   {
     id: 'fs3',
