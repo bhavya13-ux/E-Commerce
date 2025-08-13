@@ -7,7 +7,7 @@ const AddressShow = () => {
     <TouchableOpacity style={styles.container}>
       <View style={styles.addressDetails}>
         <Text style={styles.title}>Deliver to:</Text>
-        <Text style={styles.name}>Md Okaish</Text>
+        <Text style={styles.name}>Bhavya</Text>
         <Text style={styles.address} numberOfLines={2}>
           123, Park Street, Kolkata, West Bengal - 700016
         </Text>
